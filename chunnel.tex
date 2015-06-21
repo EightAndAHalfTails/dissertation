@@ -62,6 +62,9 @@
     anchorcolor=black
 }
 
+\usepackage{ctable}
+\usepackage{csvsimple}
+
 %%% END Article customizations
 
 %%% The "real" document content comes below...
@@ -75,6 +78,7 @@
 \maketitle
 
 \section{Introduction}
+\label{sec:intro}
 
 The concept of a man-made undersea tunnel connecting England and France has existed since the early 1800s, but it was not until 1986 that the construction effort resulting in the present Channel Tunnel was started.
 
@@ -105,7 +109,7 @@ Another undeveloped proposal made in 1929 estimated the cost of construction to 
 
 With air power gaining dominance in the military, the effect of a tunnel on national security became less and less significant. In 1955, British and French governements began to support technical and geological surveys. This culminated in a government-funded project to dig twin tunnels, designed to accommodate car shuttle wagons, on either side of a service tunnel. Construction began in 1974, but was cancelled by the British governement in January 1975 due to growing concerns over EEC membership and the national economy.
 
-In 1981 British Prime Minister Margaret Thatcher and French President François Mitterand agreed to set up a group, \emph{Eurotunnel}, inviting private companies to put forward propositions. Over the next few years several projects were submitted including a 4.5km suspension bridge, holding a road encased in a tube and a drive-through tunnel.
+In 1981 British Prime Minister Margaret Thatcher and French President François Mitterand agreed to set up a group, \emph{Eurotunnel} (ET), inviting private companies to put forward propositions. Over the next few years several projects were submitted including a 4.5km suspension bridge, holding a road encased in a tube and a drive-through tunnel.
 
 Public opinion favoured the drive-through tunnel, but ventilation issues, concerns about accident management, and fear of driver mesmerisation resulted in the decision of the French and UK governements to facilitate the construction of another proposal: the high-speed rail link proposed by the \emph{Channel Tunnel Group\slash France--Manche} (CTG-FM) consortium.
 
@@ -113,7 +117,7 @@ Eurotunnel absorbed CTG/F--M and signed a construction cntract with \emph{Transm
 
 The funding for this ambitious project was of an unprecedented scale. Eurotunnel's original estimate of £4.7bn doubled to £9.5bn by the end of construction as can be seen in Figure~\ref{fig:costproj}.\cite{costeval} This was in part shareholder investment and partly £8bn of debt which nearly crippled the company in its early years of operation.
 
-\begin{figure}[t]
+\begin{figure}[tp]
   \centering
   \includegraphics[width=0.8\textwidth]{costproj}
   \caption{Channel Tunnel cost projections.}
@@ -123,7 +127,7 @@ The funding for this ambitious project was of an unprecedented scale. Eurotunnel
 \subsection{Construction of the Tunnel}
 Boring began on February 28 1988. Eleven Tunnel Boring Machines (TBMs), six French and five English, worked from both ends, cutting through a stratum of chalk marl. This material provides high impermeability to water, but easy excavation, and its strength allows for minimal added structural support. The tunnel's path through the geology under the Channel is depicted in Figure~\ref{fig:geo}.
 
-\begin{figure}[t]
+\begin{figure}[tp]
   \centering
   \includegraphics[width=0.8\textwidth]{geology}
   \caption{Channel Tunnel geological profile.}
@@ -143,12 +147,76 @@ The tunnel was completed and the rail service was officially opened on May 6 199
 The spoil removed from the tunnel was put to use by both sides. The English dumped 4.9m cubic metres of the chalk marl into the sea near Dover, which eventually became Samphire Hoe, a 300,000m$^2$ County Park.\cite{samphoe} The French piled their spoil up to create a new hill.
 
 \section{Operation}
+As stated in section~\ref{sec:intro}, there are three services provided by the Channel Tunnel, the Eurotunnel Le Shuttle roll-on roll-off shuttle service for road vehicles, the Eurostar passenger trains, and through freight trains.
+
+Eurotunnel's commissioned traffic forecasts for the passenger services, which were used to analyse the costs and benefits of building the tunnel, proved to be overly optimistic. Figure~\ref{fig:pass-fore} is taken from an analysis of the Channel Tunnel's fiscal accomplishments made in 2003\cite{costeval}, and it shows that the actual number of passengers ended up only about a half to a third of the forecasted numbers.
+
+%\begin{figure}[t]
+%  \centering
+%  \csvautotabular{pass.csv}
+%  \caption{Actual Channel Tunnel passengers, 1994–2003 (millions of passengers)}
+%  \label{fig:pass}
+%\end{figure}
+
+%\ctable[
+%  caption = {Actual Channel Tunnel passengers, 1994–-2003 (millions of passengers)},
+%  label = fig:pass-actu,
+%  pos = ht,
+%  doinside=\hspace*{0pt}\footnotesize
+%]{l r r r r r r r r r r}{
+%}{
+%\FL
+%& 1994 & 1995 & 1996 & 1997 & 1998 & 1999 & 2000 & 2001 & 2002 & 2003\ML
+%Eurostar passengers & 0.1 & 2.7 & 4.9 & 6.0 & 6.3 & 6.6 & 7.1 & 6.9 & 6.6 & 6.3\NN
+%Le Shuttle passengers & 0.2 & 4.4 & 7.9 & 8.6 & 12.1 & 11.0 & 9.9 & 9.4 & 8.6 & 8.6\ML
+%CT passengers & 0.3 & 7.1 & 12.8 & 14.7 & 18.4 & 17.6 & 17.0 & 16.3 & 15.3 & 14.7\LL
+%}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pass}
+  \caption{Channel Tunnel passenger traffic forecasts and actual results (millions of passengers).}
+  \label{fig:pass-fore}
+\end{figure}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{pass-new}
+  \caption{Actual Channel Tunnel passengers, 1994–-2014}
+  \label{fig:pass-new}
+\end{figure}
+
+The study remarks:
+\begin{quote}
+\textit{After the opening of the Channel Tunnel, the total number of cross-Channel passengers grew at a considerable pace up until 1998, at which point duty free was abolished. The market then began a process of regression, which continues to the present day.}
+\end{quote}
+
+Luckily, as Figure~\ref{fig:pass-new} shows, the market began to improve again after this dip in 2003 due to the completion of Section 1 of High Speed 1, the high-speed railway connecting the British end of the tunnel to London. By 2014 the 20m passenger mark had been broken, but this is still far lower than what even the most pessimistic pre-construction forecasts by ET had predicted.
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{freight}
+  \caption{Channel Tunnel freight forecasts and actual results (million tonnes).}
+  \label{fig:freight-fore}
+\end{figure}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{freight-new}
+  \caption{Actual Channel Tunnel passengers, 1994–-2014}
+  \label{fig:freight-new}
+\end{figure}
+
+The erratic growth patterns of the freight figures compared to forecasts until 2003 can be seen in Figure~\ref{fig:freight-fore}. The drop in 1997 is due to a shuttle fire that closed shuttle sevice for a time. The volumes passed initial predictions in 1998 and approach 1987 estimates by 2003. They do not, however, reach the updated predictions of 1990 and 1994.
+
+Examining the more recent figures in Figure~\ref{fig:freight-new}, we see that growth has been relatively slow since 2003. Apart from the cutback following another shuttle fire in 2008, numbers have remained largely unchanged, barely surpassing the 20Mt mark in 2014.
+
 \section{Impact}
 \subsection{England}
 \subsection{France}
 \section{Conclusion}
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 
 \bibitem{eurotunnel-build}
 	How the Channel Tunnel was Built --- Eurotunnel Le Shuttle\\
